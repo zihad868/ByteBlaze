@@ -12,6 +12,7 @@ import MainLayouts from './Layouts/MainLayouts';
 import Blog from './pages/Blog.jsx';
 import Content from './components/Content.jsx';
 import Author from './components/Author';
+import { Toaster } from 'react-hot-toast';
 
 
 const router = createBrowserRouter([
@@ -56,5 +57,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}/>
+    <Toaster />
   </React.StrictMode>,
 )

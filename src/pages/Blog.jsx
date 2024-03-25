@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, Outlet, useLoaderData } from "react-router-dom";
+import { FaBookmark } from "react-icons/fa";
+import { saveBlog } from "../Utils";
 
 const Blog = () => {
   const [tab, setTab] = useState(0);
@@ -15,6 +17,10 @@ const Blog = () => {
     public_reactions_count,
     published_at,
   } = blog;
+
+  const handleBookMarks = (blog) => {
+    saveBlog(blog);
+  }
 
 
   return (
@@ -79,14 +85,16 @@ const Blog = () => {
             <span>Author</span>
           </Link>
 
+          <div onClick={() => handleBookMarks(blog)} className="bg-primary p-3 rounded-full hover:bg-opacity-35 bg-opacity-20 cursor-pointer hover:scale-110 overflow-hidden">
+            <FaBookmark size={20} className="text-secondary"/>
+          </div>
+
         </div>
 
         <Outlet />
 
       </article>
-      <div>
-        
-      </div>
+     
     </div>
   );
 };
